@@ -37,7 +37,7 @@ class Invoice(models.Model):
         tax = subtotal * self.TAX_RATE
         total = subtotal + tax
 
-        # ⚠️ IMPORTANT: NO save() here
+     
         self.subtotal = subtotal
         self.tax = tax
         self.total = total
@@ -64,7 +64,7 @@ class InvoiceItem(models.Model):
         return self.description
 
 
-# 🔥 SAFE SIGNALS (NO LOOP)
+
 
 @receiver(post_save, sender=InvoiceItem)
 @receiver(post_delete, sender=InvoiceItem)
